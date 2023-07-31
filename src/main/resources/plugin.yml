@@ -1,0 +1,30 @@
+name: BetterExperience
+version: 0.0.1
+main: net.kwnt.mc.plugins.betterexperience.Main
+description: Make your experience really usable
+author: knownOut
+api-version: "1.20"
+
+permissions:
+  betterexperience.bottles.create:
+    default: not op
+    description: Allow player to create experience bottles
+  betterexperience.bottles.lock:
+    default: not op
+    description: Allow player to lock experience bottles
+  betterexperience.bottles.useLocked:
+    default: op
+    description: Allow player to use locked experience bottles
+
+  betterexperience.evolve:
+    default: not op
+    description: Allow player to evolve
+  betterexperience.evolve.view:
+    default: not op
+    description: Allow player to see current evolve state
+
+commands:
+  /evolve:
+    description: Show current evolve status and some info
+    usage: /evolve
+    permission: betterexperience.evolve.view
