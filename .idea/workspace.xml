@@ -9,26 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e1c7125-9322-4c4e-84c1-4bc71426be64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/BetterExperience_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/evolve/setup/PlayerAttributesSetup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/lib/ExperienceTool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/lib/PlayerPermissions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    <list default="true" id="5e1c7125-9322-4c4e-84c1-4bc71426be64" name="Changes" comment="Finalize initial plugin logic, readme and license files">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/bottles/BottleInteractions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/evolve/PlayerAbilityEffects.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/evolve/PlayerAttributes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/evolve/PlayerDamageProtection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/BetterExperience_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BetterExperience_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/evolve/setup/PlayerAttributesSetup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/lib/PlayerPermissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/kwnt/mc/plugins/betterexperience/lib/PlayerPermissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +59,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "settings.editor.selected.configurable": "Errors"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -80,6 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1690786343232</updated>
       <workItem from="1690786345174" duration="6976000" />
+      <workItem from="1690810201310" duration="32223000" />
     </task>
     <servers />
   </component>
@@ -96,6 +96,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finalize initial plugin logic, readme and license files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalize initial plugin logic, readme and license files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

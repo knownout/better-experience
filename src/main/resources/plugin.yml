@@ -9,9 +9,12 @@ permissions:
   betterexperience.bottles.create:
     default: not op
     description: Allow player to create experience bottles
-  betterexperience.bottles.lock:
+  betterexperience.bottles.lockUnlock:
     default: not op
     description: Allow player to lock experience bottles
+  betterexperience.bottles.useWithoutBreaking:
+    default: not op
+    description: Allow player to use bottles without breaking
   betterexperience.bottles.useLocked:
     default: op
     description: Allow player to use locked experience bottles
@@ -19,12 +22,3 @@ permissions:
   betterexperience.evolve:
     default: not op
     description: Allow player to evolve
-  betterexperience.evolve.view:
-    default: not op
-    description: Allow player to see current evolve state
-
-commands:
-  /evolve:
-    description: Show current evolve status and some info
-    usage: /evolve
-    permission: betterexperience.evolve.view

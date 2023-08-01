@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="BetterExperience:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BetterExperience_jar</output-path>
+    <output-path>A:/srv/plugins</output-path>
     <root id="archive" name="BetterExperience.jar">
       <element id="module-output" name="BetterExperience.main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.1/6538b88eb8bf8811bc7b6efb5246f835c15e0bfe/junit-jupiter-api-5.8.1.jar" path-in-jar="/" />

@@ -5,30 +5,27 @@ bottles:
   # Require permission to create experience bottles
   permissions: false
 
-  # Blocks that can create experience bottles
-  interactiveBlocks:
-    - ANVIL
-    - ENCHANTING_TABLE
-
-  # Require player to sneak for bottle creation
-  sneakingOnly: true
-
-  # Return empty bottle to player if exp bottle used while sneaking
-  keepBottleWhenSneaking: false
-
-  # Allowed game modes to create experience bottles
-  whiteListGameModes:
-    - SURVIVAL
-    - ADVENTURE
+  # Enable ownership system
+  enableOwnership: true
 
   # Amount of experience points that will be taken from player to create bottle
   expAmountPerBottle: 10
 
-  # Add player name into bottle description
-  addNameTag: true
+  # Require player to sneak for bottle creation
+  sneakingOnly: true
 
   # Allow player to lock experience bottles (shift + right click with exp bottle to whitelisted block)
+  # Will not work without enabled ownership system
   allowBottleLock: true
+
+  # Blocks that can create experience bottles
+  interactiveBlocks:
+    - ENCHANTING_TABLE
+    - ANVIL
+    - CHIPPED_ANVIL
+
+  # Return empty bottle to player if exp bottle used while sneaking
+  keepBottleWhenSneaking: true
 
 evolve:
   # Enable evolve system
@@ -37,87 +34,102 @@ evolve:
   # Require permission to enable evolve functionality for player
   permissions: false
 
+  # Increase experience price for ability effect applying based on same effect duration left
+  # Work only with stackable ability effects
+  # Increase prices from 0 -> to 100% (duration left / max duration)
+  enablePriceImpact: true
+
   # How much damage will be absorbed (1.0 = 100%)
   damageProtection:
-    - 0: 0.0
-    - 11: 0.01
-    - 31: 0.1
-    - 81: 0.3
-    - 151: 0.6
+    0: 0.0
+    10: 0.01
+    30: 0.05
+    80: 0.2
+    100: 0.4
+    150: 0.6
 
   # Change player generic attributes based on level
   attributes:
     # Minimal required level
-    - 0:
-        # Player maximum health (2 hp = 1 heart)
-        GENERIC_MAX_HEALTH: 6.0
-        # Player attack damage (2.0 = default)
-        GENERIC_ATTACK_DAMAGE: 0.5
-        # Player attack speed (4.0 = default)
-        GENERIC_ATTACK_SPEED: 2.0
-    - 1:
-        GENERIC_MAX_HEALTH: 10.0
-        GENERIC_ATTACK_DAMAGE: 1.0
-        GENERIC_ATTACK_SPEED: 3.0
-    - 6:
-        GENERIC_MAX_HEALTH: 14.0
-        GENERIC_ATTACK_DAMAGE: 1.5
-    - 11:
-        GENERIC_MAX_HEALTH: 18.0
-        GENERIC_ATTACK_DAMAGE: 2.0
-        GENERIC_ATTACK_SPEED: 4.0
-    - 16:
-        GENERIC_MAX_HEALTH: 20.0
-        GENERIC_ATTACK_DAMAGE: 3.0
-    - 31:
-        GENERIC_MAX_HEALTH: 28.0
-        GENERIC_ATTACK_DAMAGE: 4.0
-        GENERIC_ATTACK_SPEED: 6.0
-    - 51:
-        GENERIC_MAX_HEALTH: 34.0
-        GENERIC_ATTACK_DAMAGE: 6.0
-        GENERIC_ATTACK_SPEED: 8.0
-    - 81:
-        GENERIC_MAX_HEALTH: 40.0
-        GENERIC_ATTACK_DAMAGE: 8.0
-        GENERIC_ATTACK_SPEED: 10.0
-    - 101:
-        GENERIC_ATTACK_DAMAGE: 20.0
-        GENERIC_ATTACK_SPEED: 16.0
-    - 151:
-        GENERIC_ATTACK_DAMAGE: 30.0
-        GENERIC_ATTACK_SPEED: 20.0
+    0:
+      # Player maximum health (2 hp = 1 heart)
+      GENERIC_MAX_HEALTH: 6.0
+      # Player attack damage (2.0 = default)
+      GENERIC_ATTACK_DAMAGE: 0.5
+      # Player attack speed (4.0 = default)
+      GENERIC_ATTACK_SPEED: 2.0
+    1:
+      GENERIC_MAX_HEALTH: 10.0
+      GENERIC_ATTACK_DAMAGE: 1.0
+      GENERIC_ATTACK_SPEED: 3.0
+    5:
+      GENERIC_MAX_HEALTH: 14.0
+      GENERIC_ATTACK_DAMAGE: 1.5
+    10:
+      GENERIC_MAX_HEALTH: 18.0
+      GENERIC_ATTACK_DAMAGE: 2.0
+      GENERIC_ATTACK_SPEED: 4.0
+    15:
+      GENERIC_MAX_HEALTH: 20.0
+      GENERIC_ATTACK_DAMAGE: 3.0
+    30:
+      GENERIC_MAX_HEALTH: 28.0
+      GENERIC_ATTACK_DAMAGE: 4.0
+      GENERIC_ATTACK_SPEED: 6.0
+    50:
+      GENERIC_MAX_HEALTH: 34.0
+      GENERIC_ATTACK_DAMAGE: 6.0
+      GENERIC_ATTACK_SPEED: 8.0
+    80:
+      GENERIC_MAX_HEALTH: 40.0
+      GENERIC_ATTACK_DAMAGE: 8.0
+      GENERIC_ATTACK_SPEED: 10.0
+    100:
+      GENERIC_ATTACK_DAMAGE: 20.0
+      GENERIC_ATTACK_SPEED: 16.0
+    150:
+      GENERIC_ATTACK_DAMAGE: 30.0
+      GENERIC_ATTACK_SPEED: 20.0
 
   # Allow player to enable some potion effects with specific items
-  potionEffects:
+  # Avoid setting usable items cuz it still can be used after effect reaches limit
+  abilities:
     # Required level
-    - 51:
-        # Potion effect
-        HEALING:
-          # Item to activate or deactivate effect
-          item: PAPER
-          # Experience points price per second
-          expPrice: 100
-          # Level of effect (1 = default)
-          level: 1
-        FEEDING:
-          item: SOME
-          expPrice: 200
-          level: 2
-    - 81:
-        FIRE_RESISTANCE:
-          item: BLAZE_ROD
-          expPrice: 100
-        NIGHT_VISION:
-          item: ENDER_EYE
-          expPrice: 10
-    - 101:
-        HEALING:
-          item: PAPER
-          expPrice: 50
-        FEEDING:
-          item: SOME
-          expPrice: 100
-          level: 2
+    51:
+      # Item to interact with (shift + right click)
+      PAPER:
+        # Effect to apply
+        effect: REGENERATION
+        # Experience points price of effect creation
+        experiencePrice: 100
+        # Effect level
+        level: 5
+        # Effect duration in seconds
+        duration: 1
+        # Allow effect to be stacked when used multiple times
+        stacking: false
+      BOWL:
+        effect: SATURATION
+        experiencePrice: 300
+        level: 1
+        duration: 1
+        stacking: false
+    81:
+      BLAZE_ROD:
+        effect: FIRE_RESISTANCE
+        experiencePrice: 200
+        level: 1
+        duration: 10
+        stacking: true
+        # Maximum duration of stacked effect
+        maxDuration: 300
+
+      FERMENTED_SPIDER_EYE:
+        effect: NIGHT_VISION
+        experiencePrice: 10
+        level: 1
+        duration: 60
+        stacking: true
+        maxDuration: 600
 
 

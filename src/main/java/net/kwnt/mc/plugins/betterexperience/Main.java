@@ -1,27 +1,27 @@
 package net.kwnt.mc.plugins.betterexperience;
 
-import net.kwnt.mc.plugins.betterexperience.evolve.setup.PlayerAttributesSetup;
+import net.kwnt.mc.plugins.betterexperience.bottles.BottleInteractions;
+import net.kwnt.mc.plugins.betterexperience.evolve.PlayerAttributes;
+import net.kwnt.mc.plugins.betterexperience.evolve.PlayerAbilityEffects;
+import net.kwnt.mc.plugins.betterexperience.evolve.PlayerDamageProtection;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
-        Bukkit.getPluginManager().registerEvents(this, this);
-    }
-
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
         FileConfiguration configuration = getConfig();
 
-        new PlayerAttributesSetup(player, configuration);
+        // Register evolve mechanics controllers
+        Bukkit.getPluginManager().registerEvents(new PlayerAttributes(configuration), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDamageProtection(configuration), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerAbilityEffects(configuration), this);
+
+        // Register experience bottles mechanics controller
+        Bukkit.getPluginManager().registerEvents(new BottleInteractions(configuration, this), this);
     }
+
 }

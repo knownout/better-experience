@@ -33,8 +33,12 @@ public class PlayerPermissions {
         return checkBasicPermissions(bottlesPermissionsEnabled, List.of("betterexperience.bottles.create"));
     }
 
-    public boolean canLockBottles() {
-        return checkBasicPermissions(bottlesPermissionsEnabled, List.of("betterexperience.bottles.lock"));
+    public boolean canLockUnlockBottles() {
+        return checkBasicPermissions(bottlesPermissionsEnabled, List.of("betterexperience.bottles.lockUnlock"));
+    }
+
+    public boolean canUseWithoutBreaking() {
+        return checkBasicPermissions(bottlesPermissionsEnabled, List.of("betterexperience.bottles.useWithoutBreaking"));
     }
 
     public boolean canUseLockedBottles() {
@@ -45,9 +49,5 @@ public class PlayerPermissions {
 
     public boolean canEvolve() {
         return checkBasicPermissions(evolvePermissionsEnabled, List.of("betterexperience.evolve"));
-    }
-
-    public boolean canViewEvolveState() {
-        return checkBasicPermissions(evolvePermissionsEnabled, List.of("betterexperience.evolve.view"));
     }
 }
